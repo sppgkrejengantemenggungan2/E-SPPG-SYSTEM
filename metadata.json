@@ -1,0 +1,8 @@
+{
+  "name": "E-SPPG Management System",
+  "description": "Sistem Informasi Manajemen Terpadu Satuan Pelayanan Pemenuhan Gizi (SPPG) Program Makan Bergizi Gratis",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

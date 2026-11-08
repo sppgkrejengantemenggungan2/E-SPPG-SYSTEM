@@ -1,0 +1,509 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with role and contact information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string" },
+        "roleTitle": { "type": "string" },
+        "phone": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "role", "status"]
+    },
+    "SppgProfile": {
+      "title": "SppgProfile",
+      "description": "SPPG Institution profile and identity configuration",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "appName": { "type": "string" },
+        "institutionName": { "type": "string" },
+        "foundationName": { "type": "string" },
+        "programName": { "type": "string" },
+        "address": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "headName": { "type": "string" },
+        "headNip": { "type": "string" },
+        "nutritionistName": { "type": "string" },
+        "financeOfficerName": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["institutionName", "programName"]
+    },
+    "BeneficiaryGroup": {
+      "title": "BeneficiaryGroup",
+      "description": "Beneficiary institution group (School, Madrasah, Posyandu)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "institutionName": { "type": "string" },
+        "address": { "type": "string" },
+        "picName": { "type": "string" },
+        "phone": { "type": "string" },
+        "bankAccount": { "type": "string" },
+        "bankName": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["institutionName", "picName", "phone"]
+    },
+    "Beneficiary": {
+      "title": "Beneficiary",
+      "description": "Detailed recipient counts per institution",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "groupId": { "type": "string" },
+        "institutionName": { "type": "string" },
+        "maleStudents": { "type": "number" },
+        "femaleStudents": { "type": "number" },
+        "maleTeachers": { "type": "number" },
+        "femaleTeachers": { "type": "number" },
+        "toddlers": { "type": "number" },
+        "pregnantMothers": { "type": "number" },
+        "breastfeedingMothers": { "type": "number" },
+        "smallPortions": { "type": "number" },
+        "largePortions": { "type": "number" },
+        "totalPortions": { "type": "number" },
+        "status": { "type": "string" },
+        "effectiveDate": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["groupId", "institutionName", "totalPortions"]
+    },
+    "FoodIngredient": {
+      "title": "FoodIngredient",
+      "description": "Master food ingredients and nutrition references",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "unit": { "type": "string" },
+        "referencePrice": { "type": "number" },
+        "energyKcal": { "type": "number" },
+        "proteinG": { "type": "number" },
+        "fatG": { "type": "number" },
+        "carbG": { "type": "number" },
+        "fiberG": { "type": "number" },
+        "currentStock": { "type": "number" },
+        "minimumStock": { "type": "number" },
+        "itemType": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "category", "unit", "referencePrice"]
+    },
+    "Supplier": {
+      "title": "Supplier",
+      "description": "Food and operational supplies vendor",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "contactPerson": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "category": { "type": "string" },
+        "bankName": { "type": "string" },
+        "accountNumber": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "phone", "status"]
+    },
+    "MenuPlan": {
+      "title": "MenuPlan",
+      "description": "Daily menu plan with components, nutrition, and food cost",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "mealTime": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "components": { "type": "string" },
+        "smallPortions": { "type": "number" },
+        "largePortions": { "type": "number" },
+        "totalEnergyKcal": { "type": "number" },
+        "totalProteinG": { "type": "number" },
+        "totalFatG": { "type": "number" },
+        "totalCarbG": { "type": "number" },
+        "totalFiberG": { "type": "number" },
+        "foodCostSmall": { "type": "number" },
+        "foodCostLarge": { "type": "number" },
+        "totalCost": { "type": "number" },
+        "status": { "type": "string" },
+        "ingredientsJson": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["date", "name", "status"]
+    },
+    "Rab": {
+      "title": "Rab",
+      "description": "Rencana Anggaran Belanja (RAB) SPPG",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "rabNumber": { "type": "string" },
+        "period": { "type": "string" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "totalPortions": { "type": "number" },
+        "foodCostBudget": { "type": "number" },
+        "operationalBudget": { "type": "number" },
+        "totalBudget": { "type": "number" },
+        "status": { "type": "string" },
+        "approvedBy": { "type": "string" },
+        "approvalNote": { "type": "string" },
+        "version": { "type": "number" },
+        "itemsJson": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["rabNumber", "period", "totalBudget", "status"]
+    },
+    "PurchaseOrder": {
+      "title": "PurchaseOrder",
+      "description": "Daily Purchase Order linked to RAB",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "poNumber": { "type": "string" },
+        "rabId": { "type": "string" },
+        "orderDate": { "type": "string" },
+        "deliveryDate": { "type": "string" },
+        "menuDate": { "type": "string" },
+        "supplierId": { "type": "string" },
+        "supplierName": { "type": "string" },
+        "totalAmount": { "type": "number" },
+        "status": { "type": "string" },
+        "itemsJson": { "type": "string" },
+        "isPaid": { "type": "string" },
+        "paymentTransactionId": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["poNumber", "orderDate", "supplierName", "totalAmount", "status"]
+    },
+    "ReceivingChecklist": {
+      "title": "ReceivingChecklist",
+      "description": "Food and goods receiving inspection checklist",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "poId": { "type": "string" },
+        "poNumber": { "type": "string" },
+        "receivingDate": { "type": "string" },
+        "inspectorName": { "type": "string" },
+        "status": { "type": "string" },
+        "isInventoryUpdated": { "type": "string" },
+        "itemsJson": { "type": "string" },
+        "photoUrls": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["poId", "poNumber", "receivingDate", "status"]
+    },
+    "InventoryTransaction": {
+      "title": "InventoryTransaction",
+      "description": "Stock in/out/mutation records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "ingredientId": { "type": "string" },
+        "ingredientName": { "type": "string" },
+        "type": { "type": "string" },
+        "quantity": { "type": "number" },
+        "unit": { "type": "string" },
+        "previousStock": { "type": "number" },
+        "finalStock": { "type": "number" },
+        "reference": { "type": "string" },
+        "note": { "type": "string" },
+        "recordedBy": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["ingredientId", "type", "quantity", "finalStock"]
+    },
+    "DivisionTask": {
+      "title": "DivisionTask",
+      "description": "Division operational task, temperatures, quality, and attendance",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "division": { "type": "string" },
+        "date": { "type": "string" },
+        "shift": { "type": "string" },
+        "officerName": { "type": "string" },
+        "taskDataJson": { "type": "string" },
+        "photoUrls": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["division", "date", "officerName", "status"]
+    },
+    "DistributionRecord": {
+      "title": "DistributionRecord",
+      "description": "Distribution to beneficiary schools and institutions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "distributionNumber": { "type": "string" },
+        "date": { "type": "string" },
+        "institutionId": { "type": "string" },
+        "institutionName": { "type": "string" },
+        "picName": { "type": "string" },
+        "smallPortions": { "type": "number" },
+        "largePortions": { "type": "number" },
+        "departureTime": { "type": "string" },
+        "arrivalTime": { "type": "string" },
+        "driverName": { "type": "string" },
+        "vehicleNumber": { "type": "string" },
+        "fuelCost": { "type": "number" },
+        "status": { "type": "string" },
+        "bastStatus": { "type": "string" },
+        "photoUrls": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["distributionNumber", "date", "institutionName", "status"]
+    },
+    "CashTransaction": {
+      "title": "CashTransaction",
+      "description": "General ledger and cash in/out transactions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "proofNumber": { "type": "string" },
+        "date": { "type": "string" },
+        "type": { "type": "string" },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "amount": { "type": "number" },
+        "referencePoId": { "type": "string" },
+        "recordedBy": { "type": "string" },
+        "verificationStatus": { "type": "string" },
+        "attachmentUrl": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["proofNumber", "date", "type", "amount", "description"]
+    },
+    "OrganolepticRecord": {
+      "title": "OrganolepticRecord",
+      "description": "Sensory organoleptic evaluation (PIC and PLOG)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "recordNumber": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "menuName": { "type": "string" },
+        "inspectorName": { "type": "string" },
+        "institution": { "type": "string" },
+        "color": { "type": "string" },
+        "aroma": { "type": "string" },
+        "taste": { "type": "string" },
+        "texture": { "type": "string" },
+        "appearance": { "type": "string" },
+        "conclusion": { "type": "string" },
+        "photoUrls": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["type", "recordNumber", "date", "menuName", "conclusion"]
+    },
+    "LetterRecord": {
+      "title": "LetterRecord",
+      "description": "Incoming and outgoing official letters, BAST, and assignment letters",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "letterNumber": { "type": "string" },
+        "date": { "type": "string" },
+        "recipientOrSender": { "type": "string" },
+        "subject": { "type": "string" },
+        "content": { "type": "string" },
+        "signatory": { "type": "string" },
+        "category": { "type": "string" },
+        "fileUrl": { "type": "string" },
+        "metadataJson": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["type", "letterNumber", "date", "subject"]
+    },
+    "VolunteerAttendance": {
+      "title": "VolunteerAttendance",
+      "description": "Volunteer attendance, substitution, and incentives",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "volunteerName": { "type": "string" },
+        "date": { "type": "string" },
+        "division": { "type": "string" },
+        "status": { "type": "string" },
+        "absenceReason": { "type": "string" },
+        "substituteName": { "type": "string" },
+        "substituteDivision": { "type": "string" },
+        "incentiveAmount": { "type": "number" },
+        "paymentStatus": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["volunteerName", "date", "division", "status"]
+    },
+    "InstitutionIncentive": {
+      "title": "InstitutionIncentive",
+      "description": "Beneficiary institution incentive calculations and disbursements",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "institutionId": { "type": "string" },
+        "institutionName": { "type": "string" },
+        "period": { "type": "string" },
+        "totalBeneficiaries": { "type": "number" },
+        "ratePerPerson": { "type": "number" },
+        "totalIncentive": { "type": "number" },
+        "paymentStatus": { "type": "string" },
+        "paymentProofUrl": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["institutionName", "period", "totalIncentive", "paymentStatus"]
+    },
+    "FoodWasteRecord": {
+      "title": "FoodWasteRecord",
+      "description": "Ompreng dishwashing waste measurement and food waste %",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "riceWasteKg": { "type": "number" },
+        "animalProteinWasteKg": { "type": "number" },
+        "plantProteinWasteKg": { "type": "number" },
+        "vegetableWasteKg": { "type": "number" },
+        "fruitWasteKg": { "type": "number" },
+        "totalWasteKg": { "type": "number" },
+        "totalProductionKg": { "type": "number" },
+        "wastePercentage": { "type": "number" },
+        "officerName": { "type": "string" },
+        "notes": { "type": "string" },
+        "photoUrls": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["date", "totalWasteKg", "totalProductionKg", "wastePercentage"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Immutable audit trails for security and traceability",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "module": { "type": "string" },
+        "action": { "type": "string" },
+        "recordId": { "type": "string" },
+        "details": { "type": "string" },
+        "ipAddress": { "type": "string" }
+      },
+      "required": ["userName", "module", "action", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profiles and credentials"
+    },
+    "/sppg_profiles/{profileId}": {
+      "schema": { "$ref": "#/entities/SppgProfile" },
+      "description": "SPPG unit identity configuration"
+    },
+    "/beneficiary_groups/{groupId}": {
+      "schema": { "$ref": "#/entities/BeneficiaryGroup" },
+      "description": "Institutions and beneficiary groups"
+    },
+    "/beneficiaries/{beneficiaryId}": {
+      "schema": { "$ref": "#/entities/Beneficiary" },
+      "description": "Beneficiary counts and portion targets"
+    },
+    "/food_ingredients/{ingredientId}": {
+      "schema": { "$ref": "#/entities/FoodIngredient" },
+      "description": "Master food ingredients and stock"
+    },
+    "/suppliers/{supplierId}": {
+      "schema": { "$ref": "#/entities/Supplier" },
+      "description": "Suppliers and vendors"
+    },
+    "/menus/{menuId}": {
+      "schema": { "$ref": "#/entities/MenuPlan" },
+      "description": "Menu planning, nutritional calculations, and food costs"
+    },
+    "/rabs/{rabId}": {
+      "schema": { "$ref": "#/entities/Rab" },
+      "description": "Rencana Anggaran Belanja (RAB) SPPG"
+    },
+    "/purchase_orders/{poId}": {
+      "schema": { "$ref": "#/entities/PurchaseOrder" },
+      "description": "Purchase orders generated from RAB"
+    },
+    "/receiving_checklists/{checklistId}": {
+      "schema": { "$ref": "#/entities/ReceivingChecklist" },
+      "description": "Receiving inspections for incoming PO goods"
+    },
+    "/inventory_transactions/{txId}": {
+      "schema": { "$ref": "#/entities/InventoryTransaction" },
+      "description": "Stock in, stock out, and mutation logs"
+    },
+    "/division_tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/DivisionTask" },
+      "description": "Operational division tasks (Persiapan, Pengolahan, Pemorsian, etc.)"
+    },
+    "/distribution_records/{distId}": {
+      "schema": { "$ref": "#/entities/DistributionRecord" },
+      "description": "Beneficiary delivery and vehicle dispatch logs"
+    },
+    "/cash_transactions/{cashId}": {
+      "schema": { "$ref": "#/entities/CashTransaction" },
+      "description": "General cash book and payment records"
+    },
+    "/organoleptic_records/{orgId}": {
+      "schema": { "$ref": "#/entities/OrganolepticRecord" },
+      "description": "Organoleptic sensory test logs (PIC and PLOG)"
+    },
+    "/letters/{letterId}": {
+      "schema": { "$ref": "#/entities/LetterRecord" },
+      "description": "Official letters, BAST, and assignment letters"
+    },
+    "/volunteer_attendance/{attId}": {
+      "schema": { "$ref": "#/entities/VolunteerAttendance" },
+      "description": "Volunteer attendance and substitute records"
+    },
+    "/institution_incentives/{incId}": {
+      "schema": { "$ref": "#/entities/InstitutionIncentive" },
+      "description": "Institution incentives"
+    },
+    "/food_waste/{wasteId}": {
+      "schema": { "$ref": "#/entities/FoodWasteRecord" },
+      "description": "Food waste percentage calculation and logging"
+    },
+    "/audit_logs/{logId}": {
+      "schema": { "$ref": "#/entities/AuditLog" },
+      "description": "Audit trails and action logging"
+    }
+  }
+}
